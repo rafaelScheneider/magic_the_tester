@@ -1,0 +1,25 @@
+body{
+    background-color: rgb(47, 47, 109);
+}
+
+.mao{
+    height: 210px;
+    width: 800px;
+    background-color: rgb(94, 94, 156);
+    border: 3px solid black;
+    display: flex;
+}
+
+.cartas{
+    height: 200px;
+    width: 100px;
+    margin: 5px;
+    background-color: bisque;
+}
+
+.campo{
+    height: 210px;
+    width: 1000px;
+    background-color: rgb(94, 94, 156);
+    border: 3px solid black;
+}
