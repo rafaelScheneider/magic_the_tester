@@ -1,0 +1,2 @@
+pd1 = '[{"name" : "humano", "power" : "2", "resist":"2", "cost":"2W"}]';
+pd2 = '[{"name" : "Prometeus", "power" : "3", "resist":"1", "cost":"4B"}]';

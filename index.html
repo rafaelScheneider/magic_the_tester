@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script type="text/javascript" src="data.json"></script>
 </head>
 <body>
     <div id="fasesEscr"></div>
@@ -16,21 +17,41 @@
     <button onclick = "passarfase()"> Passar fase</button>
 </body>
 </html>
-
 <script>
+    //VARIAVEIS GERAIS
     var fases = 1;
     fasesEscr.innerHTML = fases
     numCards = 0;
     var campo1 = []
-    const mao = ["1","1"]
+    const mao = [pd1,pd2]
 
+    //OBJETOS
+    class Carta {
+        constructor(nome, poder, resistencia) { 
+            this.nome
+            this.poder
+            this.resistencia
+        }
+    }
 
+    //PARA CADA
     mao.forEach(element => mostrar(element));
 
+
+    //FUNÇÕES
+    //CRIAR AS DIVS DAS CARTAS
     function mostrar(elementos){
-        maoT.innerHTML += `<div class="cartas" id="cartas${numCards}">${elementos}</div>`
-            numCards += 1
+        var cardData = JSON.parse(elementos);
+        maoT.innerHTML += `
+            <div class="cartas" id="cartas${numCards}">
+            ${cardData[0].name} ${cardData[0].cost}<br>
+            <button onclick="jogar()">jogar</button>
+            <div class='cardPW'>${cardData[0].power}/${cardData[0].resist}</div>
+            </div>
+            `
+        numCards += 1
     }
+
 
     function passarfase(){
         fases += 1;
@@ -38,6 +59,10 @@
             fases = 1
         }
         fasesEscr.innerHTML = fases
+    }
+
+    function jogar(){
+
     }
 
 </script>

@@ -11,6 +11,7 @@ body{
 }
 
 .cartas{
+    position: relative;
     height: 200px;
     width: 100px;
     margin: 5px;
@@ -22,4 +23,10 @@ body{
     width: 1000px;
     background-color: rgb(94, 94, 156);
     border: 3px solid black;
+}
+
+.cardPW{
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
