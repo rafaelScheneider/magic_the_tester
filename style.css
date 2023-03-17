@@ -23,6 +23,7 @@ body{
     width: 1000px;
     background-color: rgb(94, 94, 156);
     border: 3px solid black;
+    display: flex;
 }
 
 .cardPW{
