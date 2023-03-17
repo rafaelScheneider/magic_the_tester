@@ -18,7 +18,8 @@
     <br>
     <button onclick="passarfase()"> Passar fase</button>
     <br>
-    <div id="teste"></div>
+    <div id="testes"></div>
+    <button onclick="teste()"> AAAAAAH</button>
 </body>
 
 </html>
@@ -46,6 +47,17 @@
                 <div class='cardPW'>${this.power}/${this.resist}</div>
                 </div>
             `
+            this.id = document.getElementById("cartas"+ this.name);
+        }
+        vida(){
+            this.resist -= 1
+        }
+        atualizar(){
+            this.id.innerHTML = `${this.name} ${this.cost}<br>
+            <div class='cardPW'>${this.power}/${this.resist}</div>`
+            if (this.resist == 0){
+                destroyObject(campo1[0]);
+            }
         }
     }
 
@@ -76,18 +88,22 @@
         fasesEscr.innerHTML = fases
     }
 
-    //ZA HANDO 
-    function destroyObject(obj){
-        obj = undefined;
-    }
-
     //Colocar a carta no campo
     function jogar(nome, poder, resist, cost, numCards) {
         campo1.push(new Carta(nome, poder, resist, cost))
 
         const elem = document.getElementById("cartas"+numCards);
         elem.remove();
-        teste.innerHTML = campo1;
+        testes.innerHTML = campo1;
     }
 
+    function destroyObject(obj){
+        campo1.shift();
+        testes.innerHTML = campo1;
+    }
+
+    function teste(){
+        campo1[0].vida()
+        campo1[0].atualizar()
+    }
 </script>   
