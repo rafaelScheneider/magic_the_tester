@@ -12,7 +12,9 @@
 
 <body>
     <div id="fasesEscr"></div>
-    <div class="mao" id="maoT"></div>
+    <div class="mao" id="mao1T"></div>
+    <br><br>
+    <div class="terreno" id="terreno1T"></div>
     <br><br>
     <div class="campo" id="campo1T"></div>
     <br>
@@ -25,17 +27,28 @@
 </html>
 <script>
     //VARIAVEIS GERAIS
-    var fases = 1;
+    var fases = 1
     fasesEscr.innerHTML = fases
-    numCards = 0;
+    var numCards = 0
     var campo1 = []
-    const mao = [pd1, pd2, pd1]
+    var terreno1 = []
+    const mao = [pd1, pd2, pl]
 
     //PARA CADA
     mao.forEach(element => mostrar(element));
 
     //CLASSES
-    class Carta {
+    class Cards {
+        constructor(name){
+            this.name
+        }
+
+        virar(){
+            
+        }
+    }
+
+    class Criatura {
         constructor(name, power, resist, cost) {
             this.name = name
             this.power = power
@@ -61,22 +74,48 @@
         }
     }
 
+    class Terreno{
+        constructor(name, mana){
+            this.mana = mana
+            this.name = name
+            terreno1T.innerHTML += `
+            <div class="cartas" id="cartas${this.name}">
+            ${name}<br>
+            </div>
+        `
+        }
+    }
+
     //FUNÇÕES
     //CRIAR AS DIVS DAS CARTAS
     function mostrar(elementos) {
         var cardData = JSON.parse(elementos);
-        var name = cardData[0].name.toString()
-        var power = cardData[0].power
-        var resist = cardData[0].resist
-        var cost = cardData[0].cost
-        maoT.innerHTML += `
-            <div class="cartas" id="cartas${numCards}">
-            ${name} ${cost}<br>
-            <button onclick="jogar('${name}',${power},${resist},'${cost}',${numCards})">jogar</button>
-            <div class='cardPW'>${power}/${resist}</div>
-            </div>
-            `
-        numCards += 1
+        if (cardData[0].type == "creature"){
+            var name = cardData[0].name
+            var power = cardData[0].power
+            var resist = cardData[0].resist
+            var cost = cardData[0].cost
+            mao1T.innerHTML += `
+                <div class="cartas" id="cartas${numCards}">
+                ${name} ${cost}<br>
+                <button onclick="jogarCriatura('${name}',${power},${resist},'${cost}',${numCards})">jogar</button>
+                <div class='cardPW'>${power}/${resist}</div>
+                </div>
+                `
+            numCards += 1
+        }
+
+        else if(cardData[0].type == "land"){
+            var name = cardData[0].name.toString()
+            var mana = cardData[0].mana
+            mao1T.innerHTML += `
+                <div class="cartas" id="cartas${numCards}">
+                ${name}<br>
+                <button onclick="jogarTerreno('${name}','${mana}',${numCards})">jogar</button>
+                </div>
+                `
+            numCards += 1
+        }
     }
 
     //Passar fase
@@ -89,7 +128,7 @@
     }
 
     //Colocar a carta no campo
-    function jogar(nome, poder, resist, cost, numCards) {
+    function jogarCriatura(nome, poder, resist, cost, numCards) {
         campo1.push(new Carta(nome, poder, resist, cost))
 
         const elem = document.getElementById("cartas"+numCards);
@@ -97,11 +136,20 @@
         testes.innerHTML = campo1;
     }
 
+    function jogarTerreno(nome, mana, numCards) {
+        terreno1.push(new Terreno(nome, mana))
+
+        const elem = document.getElementById("cartas"+numCards);
+        elem.remove();
+    }
+
+    // ZA HANDO
     function destroyObject(obj){
         campo1.shift();
         testes.innerHTML = campo1;
     }
 
+    //testes variados
     function teste(){
         campo1[0].vida()
         campo1[0].atualizar()

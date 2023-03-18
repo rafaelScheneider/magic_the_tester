@@ -1,2 +1,3 @@
-pd1 = '[{"name" : "humano", "power" : "2", "resist":"2", "cost":"3W"}]';
-pd2 = '[{"name" : "Prometeus", "power" : "3", "resist":"1", "cost":"4B"}]';
+pd1 = '[{"name" : "humano", "power" : "2", "resist":"2", "cost":"3W", "type":"creature"}]';
+pd2 = '[{"name" : "Prometeus", "power" : "3", "resist":"1", "cost":"4B", "type":"creature"}]';
+pl = '[{"name" : "Planice", "type":"land", "mana":"W"}]'
