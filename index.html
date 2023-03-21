@@ -12,6 +12,7 @@
 
 <body>
     <div id="fasesEscr"></div>
+    <div id="mana_pool1T"></div>
     <div class="mao" id="mao1T"></div>
     <br><br>
     <div class="terreno" id="terreno1T"></div>
@@ -46,18 +47,25 @@
     class Cards {
         constructor(name) {
             this.div = "cartas" + name
+            this.virado = false
         }
 
-        virar(id) {
-            this.id.innerHTML += `
-                VIRADO
-            `
+        virar() {
+            if(this.virado == false){
+                this.id.innerHTML += `<div id="${this.name + "vir"}">VIRADO</div>`
+                this.virado = true
+            }
         }
+        desvirar(){
+            this.elem = document.getElementById(this.name+"vir");
+            this.elem.remove();
+            this.virado = false
+        }
+
         destruido(id) {
             id.remove();
         }
     }
-
 
     //CLASSE CRIATURA
     class Criatura extends Cards {
@@ -79,9 +87,11 @@
             //this.destruido(this.id)
             idC += 1 
         }
+
         vida() {
             this.resist -= 1
         }
+
         atualizar() {
             this.id.innerHTML = `${this.name} ${this.cost}<br>
             <div class='cardPW'>${this.power}/${this.resist}</div>`
@@ -101,17 +111,22 @@
             this.name = name
             this.place = place_array
             terreno1T.innerHTML += `
-            <div class="cartas" id="cartas${this.name + idC}">
-            ${name}<br>
-            <button onclick="">Virar</button>
-            </div>
-        `
+                <div class="cartas" id="cartas${this.name + idC}">
+                ${name}<br>
+                <button onclick="terreno1[${this.place}].addMana(),terreno1[${this.place}].virar()">Virar</button>
+                </div>
+            `
             this.id = document.getElementById("cartas" + this.name + idC);
             //this.virar(this.id)
             idC += 1
-            alert(this.place)
         }
-
+        
+        addMana(){
+            if (this.virado == false){
+                mana_pool1.push("W")
+                mana_pool1T.innerHTML = mana_pool1
+            }
+        }
     }
 
     //FUNÇÕES
@@ -146,11 +161,18 @@
         }
     }
 
+    function desvirar_todos(objet){
+        objet.desvirar()
+    }
+    
     //Passar fase
     function passarfase() {
         fases += 1;
         if (fases == 6) {
             fases = 1
+        }
+        if (fases == 1){
+            terreno1.forEach(element => desvirar_todos(element))
         }
         fasesEscr.innerHTML = fases
     }
@@ -193,7 +215,6 @@
 
     //testes variados
     function teste() {
-        campo1[0].vida()
-        campo1[0].atualizar()
+        //campo1[0].atualizar()
     }
 </script>
