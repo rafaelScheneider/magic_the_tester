@@ -1,3 +1,7 @@
-pd1 = '[{"name" : "humano", "power" : "2", "resist":"2", "cost":"3W", "type":"creature"}]';
-pd2 = '[{"name" : "Prometeus", "power" : "3", "resist":"1", "cost":"4B", "type":"creature"}]';
-pl = '[{"name" : "Planice", "type":"land", "mana":"W"}]'
+Cpd1 = '[{"name" : "humano", "power" : "2", "resist":"2", "cost":"3W", "type":"creature"}]';
+Cpd2 = '[{"name" : "Prometeus", "power" : "3", "resist":"1", "cost":"4B", "type":"creature"}]';
+Lp1 = '[{"name" : "Planice", "type":"land", "mana":"W"}]';
+Ls1 = '[{"name" : "Pantano", "type":"land", "mana":"B"}]';
+Li1 = '[{"name" : "Ilha", "type":"land", "mana":"U"}]';
+Lm1 = '[{"name" : "Montanha", "type":"land", "mana":"V"}]';
+Lf1 = '[{"name" : "Floresta", "type":"land", "mana":"G"}]';
