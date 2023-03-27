@@ -1,7 +1,7 @@
-Cpd1 = '[{"name" : "humano", "power" : "2", "resist":"2", "cost":"3W", "type":"creature"}]';
-Cpd2 = '[{"name" : "Prometeus", "power" : "3", "resist":"1", "cost":"4B", "type":"creature"}]';
-Lp1 = '[{"name" : "Planice", "type":"land", "mana":"W"}]';
-Ls1 = '[{"name" : "Pantano", "type":"land", "mana":"B"}]';
-Li1 = '[{"name" : "Ilha", "type":"land", "mana":"U"}]';
-Lm1 = '[{"name" : "Montanha", "type":"land", "mana":"V"}]';
-Lf1 = '[{"name" : "Floresta", "type":"land", "mana":"G"}]';
+Cpd1 = '[{"name" : "humano", "power" : "2", "resist":"2", "cost":"3W", "type":"creature", "cod":"Cpd1"}]';
+Cpd2 = '[{"name" : "Prometeus", "power" : "3", "resist":"1", "cost":"4B", "type":"creature", "cod":"Cpd2"}]';
+Lp1 = '[{"name" : "Planice", "type":"land", "mana":"W", "cod":"Lp1"}]';
+Ls1 = '[{"name" : "Pantano", "type":"land", "mana":"B", "cod":"Ls1"}]';
+Li1 = '[{"name" : "Ilha", "type":"land", "mana":"U", "cod":"Li1"}]';
+Lm1 = '[{"name" : "Montanha", "type":"land", "mana":"V", "cod":"Lm1"}]';
+Lf1 = '[{"name" : "Floresta", "type":"land", "mana":"G", "cod":"Lf1"}]';

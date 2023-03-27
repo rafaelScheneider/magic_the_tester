@@ -4,7 +4,7 @@ body{
 
 .mao{
     height: 210px;
-    width: 800px;
+    width: 868px;
     background-color: rgb(116, 201, 235);
     border: 3px solid black;
     display: flex;
@@ -16,6 +16,19 @@ body{
     background-color: rgb(194, 83, 98);
     border: 3px solid black;
     display: flex;
+}
+
+.cemiterio{
+    height: 210px;
+    width: 510px;
+    background-color: rgb(109, 109, 109);
+    border: 3px solid black;
+    display: flex;
+}
+
+.id_cem{
+    display: flex;
+    gap: 15px;
 }
 
 .terreno{
