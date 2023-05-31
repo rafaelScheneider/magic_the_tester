@@ -52,11 +52,10 @@
     //CLASSE PAI
     class Cards {
         constructor(name) {
-            this.div = "cartas" + name
             this.virado = false
         }
 
-        virar() {
+        virar(id) {
             if (this.virado == false) {
                 id.innerHTML += `<div id="${this.name + "vir"}">VIRADO</div>`
                 this.virado = true
@@ -132,9 +131,8 @@
                 <div class="cartas" id="cartas${this.name + this.card_number}">
                 ${name}<br>
                 <button onclick="terreno1[${this.place}].addMana('cartas${this.name + this.card_number}')">Virar</button>
-                </div>  
+                </div>
             `
-            this.id = document.getElementById("cartas" + this.name + this.card_number);
             idC += 1
         }
         addMana(id_html) {
